@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Register</title>
+        <link href="bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/navbar.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="css/Register.css">
+    </head>
+    <body>
+        <div class="menu-bar">
+            <ul>
+                <img style="height:70px;width:55px;padding-top:1%; margin-right: 1%" src="images/Ganesha.png" alt=""/>
+                <p class="left-button" style="font-size:20px; padding-top:1%"><b>Ashtavinayak</br>Medical Store</b></p>
+                <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> <b>Home</b></a></li>
+                <li><a href="About.jsp"><b>About</b></a></li>
+                <li><a href="Contact.jsp"><i class="fa fa-reply" aria-hidden="true"></i> <b>Contact</b></a></li>
+                <li><a href="#"><i class="fa fa-register" aria-hidden="true"></i><b>Register</b></a> 
+                    <div class="sub">
+                        <ul>
+                            <li><a href="Register.html">Customer</a></li>
+                            <li><a href="SellerRegister.html">Seller</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#"><i class="fa fa-reply" aria-hidden="true"></i> <b>Login</b></a>
+                    <div class="sub">
+                        <ul>
+                            <li><a href="Login.html">Customer</a></li>
+                            <li><a href="SellerLogin.html">Seller</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <p>&copy; 2023 Ashtavinayak Medical Store. All rights reserved.</p>
+        </div>
+
+        <form action="SellerRegister.jsp" method="post">
+            <div class="container">
+                <div class="registerbox">
+                    <h2>Register New Seller</h2>
+                    <input type="text" name="name" placeholder="Enter Name" onkeypress="return /[A-Za-z\s]/i.test(event.key)" required>
+                    <span id="phoneError" style="color: red; display: none;">Enter a valid 10-digit phone number</span>
+                    <input type="text"  name="phno" id="phno" placeholder="Enter Phone Number" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="10" required>
+                    <input type="text" name="address" placeholder="Enter Address" required>
+                    <input type="text" name="uid" placeholder="Enter User Name" required>
+                    <input type="password" name="pass1" id="pass1" placeholder="Enter Password" required>
+                    <span id="passwordError" style="color: red; display: none;">Passwords do not match</span>
+                    <input type="password" name="pass2" id="pass2" placeholder="Retype Password" required>
+                    <h3>Seller ID Already Exists</h3>
+                    <input type="submit" value="Submit" onclick="validateForm(event);">
+                </div>
+            </div>
+        </form>
+        <script>
+
+            document.getElementById("email").addEventListener("blur", validateEmail);
+
+            function validatePassword() {
+                var pass1Input = document.getElementById("pass1");
+                var pass2Input = document.getElementById("pass2");
+                var passwordError = document.getElementById("passwordError");
+                var pass1 = pass1Input.value;
+                var pass2 = pass2Input.value;
+
+                if (pass1 !== pass2) {
+                    passwordError.style.display = "inline";
+                    return false;
+                }
+                passwordError.style.display = "none";
+                return true;
+            }
+
+            document.getElementById("pass2").addEventListener("blur", validatePassword);
+
+            function validatePhoneNumber() {
+                var phoneInput = document.getElementById("phno");
+                var phoneError = document.getElementById("phoneError");
+                var phoneNumber = phoneInput.value;
+
+                // Regular expression for 10-digit Indian phone number validation
+                var phoneRegex = /^[6-9]\d{9}$/;
+
+                if (!phoneRegex.test(phoneNumber)) {
+                    phoneError.style.display = "inline";
+                    return false;
+                }
+                phoneError.style.display = "none";
+                return true;
+            }
+
+            document.getElementById("phno").addEventListener("blur", validatePhoneNumber);
+
+            function validateForm(event) {
+                var isValidPhoneNumber = validatePhoneNumber();
+                var isValidPassword = validatePassword();
+
+                if (!(isValidPhoneNumber && isValidPassword)) {
+                    event.preventDefault(); // Prevent form submission if any validation fails
+                }
+            }
+        </script>
+    </body>
+</html>

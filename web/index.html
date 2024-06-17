@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/navbar.css" rel="stylesheet" type="text/css"/>
+        <title>Medicine Shop</title>
+        <style>
+            /* CSS styles */
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+            }
+            .menu-bar {
+                background: #673AB7; /* Deep purple background */
+                text-align: left;
+                width: 100%;
+                position: fixed;
+            }
+
+            .hero-section {
+                height: 100vh;
+                background-image: url('images/bg1.jpg');
+                background-size: cover;
+                background-position: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                color: #fff;
+            }
+
+            .hero-section h1 {
+                font-size: 48px;
+                margin-bottom: 20px;
+            }
+
+            .hero-section p {
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+
+            .cta-button {
+                display: inline-block;
+                padding: 12px 24px;
+                background-color: #4cae4c;
+                color: #333;
+                font-size: 20px;
+                text-decoration: none;
+                border-radius: 4px;
+                transition: background-color 0.3s ease;
+            }
+
+            .cta-button:hover {
+                background-color: #eee;
+            }
+        </style>
+        <link href="css/navbar.css" rel="stylesheet" type="text/css" />
+    </head>
+    <div class="menu-bar">
+        <ul>
+            <img style="height:70px;width:55px;padding-top:1%; margin-right: 1%" src="images/Ganesha.png" alt=""/>
+            <p class="left-button" style="font-size:20px; padding-top:1%"><b>Ashtavinayak</br>Medical Store</b></p>
+            <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> <b>Home</b></a></li>
+            <li><a href="About.jsp"><b>About</b></a></li>
+            <li><a href="Contact.jsp"><i class="fa fa-reply" aria-hidden="true"></i> <b>Contact</b></a></li>
+            <li><a href="#"><i class="fa fa-register" aria-hidden="true"></i><b>Register</b></a> 
+                <div class="sub">
+                    <ul>
+                        <li><a href="Register.html">Customer</a></li>
+                        <li><a href="SellerRegister.html">Seller</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#"><i class="fa fa-reply" aria-hidden="true"></i> <b>Login</b></a>
+                <div class="sub">
+                    <ul>
+                        <li><a href="Login.html">Customer</a></li>
+                        <li><a href="SellerLogin.html">Seller</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 Ashtavinayak Medical Store. All rights reserved.</p>
+    </div>
+    <div class="hero-section">
+        <img style="width:100px;height:120px" src="images/Ganesha.png" alt=""/>
+        <h1 style="color: #FF5722"><b>Welcome to Ashtavinayak Medical Store</b></h1>
+        <p style="color: white;"><b>Your trusted source for all your medication <b/><b style="background-color: black;">needs.</b></p>
+        <a href="Buy.jsp" class="cta-button"><b>View Products</b></a>
+    </div>
+
+    <script>
+        // JavaScript code
+        // Add any interactive functionality or dynamic content here
+    </script>
+
+</body>
+</html>

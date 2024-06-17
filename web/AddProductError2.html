@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Add Product</title>
+        <link rel="stylesheet" href="bootstrap.css">
+        <link href="css/navbar.css" rel="stylesheet" type="text/css"/>
+        <link href="css/AddProduct.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="menu-bar">
+            <ul>
+                <img style="height:70px;width:55px;padding-top:1%; margin-right: 1%" src="images/Ganesha.png" alt=""/>
+                <p class="left-button" style="font-size:20px; padding-top:1%"><b>Ashtavinayak</br>Medical Store</b></p>
+                <li><a href="SellerHomepage.jsp"><b>Home</b></a></li>
+                <li><a href="AddProduct.html"><b>Add Product</b></a></li>
+                <li><a href="AddInventory.jsp"><b>Manage products</b></a></li>
+                <li><a href="SellerOrders.jsp"><b>Orders</b></a></li>
+                <li><a href="SellerCancelledOrders.jsp"><b>Cancelled Orders</b></a></li>
+                <li><a href="Logout.jsp"><i class="fa fa-sign-out" aria-hidden="true"></i><b>Reports</b></a>
+                    <div class="sub">
+                        <ul>
+                            <li><a href="or"><b>Orders Report</b></a></li>
+                            <li><a href="cr"><b>Our Customers</b></a></li>
+                            <li><a href="pr"><b>Products</b></a></li>
+                            <li><a href="up"><b>Unavailable Products</b></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="FeedbackReport.jsp"><b>Feedbacks</b></a></li>
+                <li><a href="Logout.jsp"><i class="fa fa-sign-out" aria-hidden="true"></i><b>Logout</b></a></li>
+            </ul>
+        </div>
+
+        <div class="active">
+            
+            <h2>Invalid Date format Enter Date Again</h2>
+            <form action="AddProduct" method="post" id="addProductForm">
+                <div class="bigcard">
+                    <h2 style="text-align: center;"><b>Add product</b></h2>
+                    <div class="bigcard1">
+                        <h4><b>Enter Product Name</b></h4>
+                        <input style="height:35px" type='text' name='prname' placeholder="Enter Product Name" required>
+                        <h4><b>Enter Manufacturer Name</b></h4>
+                        <input style="height:35px" type='text' name='mfname' placeholder="Enter Manufacturer Name" onkeypress="return /[A-Za-z\s]/i.test(event.key)" required>
+                        <h4><b>Enter Manufacture Date</b></h4>
+                        <input style="height:35px" type="date" name="mdate" placeholder="YYYY-MM-DD" onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 45" required>
+                        <h4><b>Enter Expiry Date</b></h4>
+                        <input style="height:35px" type="date" name="edate" placeholder="YYYY-MM-DD" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || event.charCode == 45)" required>
+                        <h4><b>Enter Primary Image</b></h4>
+                        <input style="height:35px;border: 1px solid black;" type='file' accept="image/png,image/jpeg,image/jpg" name='image' required>
+                        <h4><b>Enter Second Image</b></h4>
+                        <input style="height:35px;border: 1px solid black;" accept="image/png,image/jpeg,image/jpg" type='file' name='image2' required>
+                    </div>
+                    <div class="bigcard2">
+                        <h4><b>Enter Product ID</b></h4>
+                        <input style="height:35px" type='text' name='prid' onkeypress="return /[A-Za-z0-9\s]/i.test(event.key)" placeholder="Enter Product ID" required>
+                        <h4><b>Choose Category</b></h4>
+                        <select name="category" style="position:relative;
+                                width: 100%;
+                                box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.2);
+                                border: 1px solid black;
+                                border-radius:5px;
+                                outline: none;
+                                color: black;
+                                height: 35px;
+                                background: White;
+                                font-size: 18px;
+                                text-align:left;
+                                " required>
+                            <option value="" selected disabled>Select Medicine Category</option>
+                            <option value="Capsules">Capsules</option>
+                            <option value="Tablets">Tablets</option>
+                            <option value="Syrup">Syrup</option>
+                            <option value="Solution">Solution</option>
+                            <option value="Inhaler">Inhaler</option>
+                            <option value="Ointment">Ointment</option>
+                            <option value="Suppository">Suppository</option>
+                        </select>
+                        <h4><b>Quantity</b></h4>
+                        <input style="height:35px" type="text" name="quantity" placeholder="Enter Quantity" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required>
+                        <h4><b>Price</b></h4>
+                        <input style="height:35px" type="text" name="price" placeholder="Enter Price" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46" required>
+                        <h4><b>Enter Third Image</b></h4>
+                        <input style="position:relative;
+                               width: 100%;
+                               box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.2);
+                               border: 1px solid black;
+                               border-radius:5px;
+                               outline: none;
+                               color: black;
+                               height: 35px;
+                               background: White;
+                               font-size: 18px;
+                               text-align:left;" type='file' accept="image/png,image/jpeg,image/jpg" name='image1' required>
+
+                        <h4>.</h4>
+                        <input type="submit" value="Add" onclick="validateForm(event)">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="footer">
+            <p>&copy; 2023 Ashtavinayak Medical Store. All rights reserved.</p>
+        </div>
+
+        <script>
+    function validateForm(event) {
+        var prnameInput = document.getElementsByName("prname")[0];
+        var mfnameInput = document.getElementsByName("mfname")[0];
+        var mdateInput = document.getElementsByName("mdate")[0];
+        var edateInput = document.getElementsByName("edate")[0];
+        var imageInput = document.getElementsByName("image")[0];
+        var image2Input = document.getElementsByName("image2")[0];
+        var pridInput = document.getElementsByName("prid")[0];
+        var categoryInput = document.getElementsByName("category")[0];
+        var quantityInput = document.getElementsByName("quantity")[0];
+        var priceInput = document.getElementsByName("price")[0];
+        var image1Input = document.getElementsByName("image1")[0];
+
+        if (prnameInput.value.trim() === "" || mfnameInput.value.trim() === "" || mdateInput.value.trim() === "" || edateInput.value.trim() === "" || imageInput.value.trim() === "" || image2Input.value.trim() === "" || pridInput.value.trim() === "" || categoryInput.value.trim() === "" || quantityInput.value.trim() === "" || priceInput.value.trim() === "" || image1Input.value.trim() === "") {
+            event.preventDefault();
+            alert("Please fill in all the fields.");
+        } else {
+            var today = new Date();
+            var tomorrow = new Date();
+            tomorrow.setDate(today.getDate() + 1);
+
+            var mdate = new Date(mdateInput.value);
+            var edate = new Date(edateInput.value);
+
+            if (mdate > today) {
+                event.preventDefault();
+                alert("Manufacture Date should be of today or before.");
+            } else if (edate <= tomorrow) {
+                event.preventDefault();
+                alert("Expiry Date should be of tomorrow or later.");
+            }
+        }
+    }
+</script>
+
+    </body>
+</html>
